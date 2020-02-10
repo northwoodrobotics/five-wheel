@@ -126,18 +126,18 @@ public class SwerveMath {
 
         //These are the equations for the wheel speed, for motors 1-5.
         
-        double wsLF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((1.25 * d_Def),2));
-        double wsRF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((1.25 * c_Def),2));
-        double wsRB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((1.25 * c_Def),2));
-        double wsLB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((1.25 * d_Def),2));
+        double wsLF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((((Math.sqrt(3)/2) *d_Def) + ((1-(Math.sqrt(3)/2))*c_Def)),2));
+        double wsRF =  Math.sqrt(Math.pow(((0.75 * b_Def)+(0.25 * a_Def)),2)+Math.pow((((Math.sqrt(3)/2) *c_Def) + ((1-(Math.sqrt(3)/2))*d_Def)),2));
+        double wsRB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((((Math.sqrt(3)/2) *c_Def) + ((1-(Math.sqrt(3)/2))*d_Def)),2));
+        double wsLB =  Math.sqrt(Math.pow(((0.75 * a_Def)+(0.25 * b_Def)),2)+Math.pow((((Math.sqrt(3)/2) *d_Def) + ((1-(Math.sqrt(3)/2))*c_Def)),2));
         double wsB =  Math.sqrt(Math.pow(a_Plus,2)+Math.pow((d_Plus/2 + c_Plus/2),2));
 
         //These are the equations for the wheel angle, for motors 1-5.
-        double waLF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(1.25 * d_Def))*180/Math.PI;
-        double waRF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(1.25 * c_Def))*180/Math.PI;
-        double waRB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(1.25 * c_Def))*180/Math.PI;
-        double waLB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(1.25 * d_Def))*180/Math.PI;
-        double waB =  Math.atan2((1.25 * a_Def),(d_Plus/2 + c_Plus/2))*180/Math.PI;
+        double waLF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(((Math.sqrt(3)/2) *d_Def) + ((1-(Math.sqrt(3)/2))*c_Def)))*180/Math.PI;
+        double waRF =  Math.atan2(((0.75 * b_Def)+(0.25 * a_Def)),(((Math.sqrt(3)/2) *c_Def) + ((1-(Math.sqrt(3)/2))*d_Def)))*180/Math.PI;
+        double waRB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(((Math.sqrt(3)/2) *c_Def) + ((1-(Math.sqrt(3)/2))*d_Def)))*180/Math.PI;
+        double waLB =  Math.atan2(((0.75 * a_Def)+(0.25 * b_Def)),(((Math.sqrt(3)/2) *d_Def) + ((1-(Math.sqrt(3)/2))*c_Def)))*180/Math.PI;
+        double waB =  Math.atan2((a_Def),(d_Plus/2 + c_Plus/2))*180/Math.PI;
 
         //This is to normalize the speed (if the largest speed is greater than 1, change accordingly).
         double max = wsLF;
